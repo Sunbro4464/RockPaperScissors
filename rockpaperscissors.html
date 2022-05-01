@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            var arrayChoices = [ "rock", "paper", "scissors"];
+            let computerChoice = arrayChoices[Math.floor(Math.random()*arrayChoices.length)];
+            return computerChoice;
+        }
+        console.log(computerPlay());
+        function playRound(playerSelection, computerSelection) {
+            computerSelection = computerPlay();
+            let playerInput = prompt("Please select an option from: Rock, Paper, or Scissors");
+            playerSelection = playerInput.toLowerCase();
+            let outcome = ""
+            if (playerSelection == computerSelection) {
+                outcome = "You Tied! Please try again!"; 
+            } else if (playerSelection == "rock" && computerSelection == "paper") {
+                outcome = "You Lose!";
+            } else if (playerSelection == "paper" && computerSelection == "scissors") {
+                outcome = "You Lose!";
+            } else if (playerSelection == "scissors" && computerSelection == "rock") {
+                outcome = "You lose!"; 
+            } else {
+                outcome = "You win! Congrats!"
+            }
+            return outcome; 
+        }
+        console.log(playRound("",computerPlay()));
+    </script>
+</body>
+</html>
